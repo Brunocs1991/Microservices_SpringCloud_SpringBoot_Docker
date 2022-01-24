@@ -1,6 +1,6 @@
-package com.github.brunocs.controller;
+package com.github.brunocs1991.controller;
 
-import com.github.brunocs.domain.Greeting;
+import com.github.brunocs1991.domain.Greeting;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;

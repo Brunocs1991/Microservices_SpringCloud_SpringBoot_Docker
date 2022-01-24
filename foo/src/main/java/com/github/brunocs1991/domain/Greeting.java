@@ -1,4 +1,4 @@
-package com.github.brunocs.domain;
+package com.github.brunocs1991.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
