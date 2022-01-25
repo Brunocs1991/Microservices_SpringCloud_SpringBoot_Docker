@@ -1,6 +1,8 @@
 package com.github.brunocs1991.controller;
 
 import com.github.brunocs1991.model.Cambio;
+import com.github.brunocs1991.repository.CambioRepository;
+import com.github.brunocs1991.service.CambioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,20 +11,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("cambio-service")
 public class CambioController {
 
     @Autowired
-    private Environment environment;
+    private CambioService cambioService;
 
     @GetMapping(value = "/{amount}/{from}/{to}")
     public Cambio getCambio(@PathVariable("amount")BigDecimal amount,
                             @PathVariable("from") String from,
                             @PathVariable("to") String to){
 
-         var port = environment.getProperty("local.server.port");
-        return  new Cambio(1l, from, to, BigDecimal.ONE, BigDecimal.ONE, port);
+        return  cambioService.retornaCambio(amount, from, to);
     }
 }
