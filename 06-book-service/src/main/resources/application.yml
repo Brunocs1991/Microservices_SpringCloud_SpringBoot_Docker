@@ -20,3 +20,7 @@ spring:
     schemas: book_service
     user: root
     password: password
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+    default-property-inclusion: non_null

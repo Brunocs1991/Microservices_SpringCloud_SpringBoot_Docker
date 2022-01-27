@@ -1,5 +1,6 @@
 package com.github.brunocs1991.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -12,6 +13,7 @@ import java.util.Date;
 @AllArgsConstructor
 @EqualsAndHashCode
 @Entity(name = "book")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Book implements Serializable {
 
     private static final long serrialVersionUID = 1L;
