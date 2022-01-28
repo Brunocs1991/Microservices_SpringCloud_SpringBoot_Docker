@@ -24,3 +24,7 @@ spring:
     serialization:
       fail-on-empty-beans: false
     default-property-inclusion: non_null
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
