@@ -29,7 +29,7 @@ public class BookService {
         }
         var cambio = cambioProxy.getCambio(book.getPrice(), "USD", currency);
         var port = environment.getProperty("local.server.port");
-        book.setEnviroment(port + " FEING");
+        book.setEnviroment("Book port: " + port + " Cambio port " + cambio.getEnviroment());
         book.setPrice(cambio.getConvertedValue());
         return book;
     }
