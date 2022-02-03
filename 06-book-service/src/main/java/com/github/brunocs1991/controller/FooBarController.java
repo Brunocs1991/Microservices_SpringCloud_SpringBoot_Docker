@@ -1,5 +1,6 @@
 package com.github.brunocs1991.controller;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.retry.annotation.Retry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +16,8 @@ public class FooBarController {
     private Logger logger = LoggerFactory.getLogger(FooBarController.class);
 
     @GetMapping("/foo-bar")
-    @Retry(name = "foo-bar", fallbackMethod = "fallbackMethod")
+    //@Retry(name = "foo-bar", fallbackMethod = "fallbackMethod")
+    @CircuitBreaker(name = "default", fallbackMethod = "fallbackMethod")
     public String fooBar(){
         logger.info("Request to foo-bar is received!");
         var response = new RestTemplate().getForEntity("http://localhost:8080/foo-bar", String.class);
